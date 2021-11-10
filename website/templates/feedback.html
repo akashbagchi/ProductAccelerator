@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2">
+            <form action="" method="POST">
+                <h3 aligh="center">
+                    Provide feedback on the website.
+                </h3>
+                <br>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input 
+                        type="email" 
+                        class="form-control" 
+                        id="email" 
+                        name="email" 
+                        placeholder="Enter e-mail"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="firstName" 
+                        name="firstName" 
+                        placeholder="Enter first name"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="feedbackText">Feedback</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="feedbackText" 
+                        name="feedbackText" 
+                        placeholder="Enter your feedback here"
+                    />
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Home{% endblock %}</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" />
+
+</head>
+
+<body {% block color %}style="background-color: rgba(75, 80, 83, 0.692);"{% endblock %}>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm fixed-top" style="background-color:rgb(107, 223, 184);">
+        <div class="container my-2">
+            <a href="/" class="navbar-brand text-dark font-weight-bold" style="font-size: medium;">Product Accelerator Internship</a>
+            <button
+                class="navbar-toggler"
+                data-toggle="collapse"
+                data-target="#collapseNav"
+            >
+            <span class="fas text-dark fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse flex-grow-0" id="collapseNav">
+                <div class="navbar-nav">
+                    <a href="/about" class="nav-item nav-link text-dark font-weight-bold my-auto">
+                        About me
+                    </a>
+                    <a href="/feedback" class="nav-item nav-link text-dark font-weight-bold my-auto">
+                        Feedback
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {%if messages %}
+            {% for category, message in messages %}
+                {% if category == 'error' %}
+                    <div class="alert alert-danger alert-dismissable fade show py-5 my-5" role="alert">
+                        {{ message }}
+                        <button class="close" type="button" data-dismiss="alert"> 
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% else %}
+                    <div class="alert alert-success alert-dismissable fade show py-5 my-5" role="alert">
+                        {{ message }}
+                        <button class="close" type="button" data-dismiss="alert"> 
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="container py-5 my-5">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer section -->
+    <footer>
+        <div class="container-fluid text-center" style="background-color: black;">
+            <div class="row py-5">
+                <div class="col-12">
+                    <h2 class="text-light">Liked my website?</h2>
+                    <a href="/feedback">
+                        <button class="btn btn-outline-light btn-lg">Leave a review!</button>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4 pb-4">
+                    <h5 class="text-info">More Links</h5>
+                    <a href="https://www.dsu.edu.in" class="text-light d-block">GitHub Source Code</a>
+                    <a href="https://www.youtube.com/channel/UCOulRShzEW0qSxHyHri96aQ" class="text-light d-block">Video Explanation</a>
+                </div>
+                <div class="col-12 col-md-4 text-light text-justify">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                    </p>
+                </div>
+                <div class="col-12 col-md-4 pb-4">
+                     <h5 class="text-info">Social</h5>
+                     <a href="#">
+                         <i class="fab fa-linkedin text-light h1 d-block"></i>
+                     </a>
+                     <a href="#">
+                        <i class="fab fa-github text-light h1 d-block"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="row pt-2">
+                <div class="col-12 text-muted mb-2">
+                    Akash Bagchi ENG19CS0019
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
