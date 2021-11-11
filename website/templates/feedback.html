@@ -1,5 +1,9 @@
 {% extends "base.html" %}
-{% block title %}Sign Up{% endblock %}
+{% block title %}Feedback{% endblock %}
+{% block jscript %}
+
+{% endblock %}
+{% block onload %} {% endblock %}
 {% block content %}
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2">
@@ -39,8 +43,15 @@
                     />
                 </div>
                 <br>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" onclick="getFeedback()" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
+    <div class="row my-5 d-flex flex-nowrap overflow-auto" id="feedbackDisplay">
+        
+        <!-- <button v-on:click="getFeedback()">
+            See Reviews
+        </button> -->
+    </div>
+    
 {% endblock %}
